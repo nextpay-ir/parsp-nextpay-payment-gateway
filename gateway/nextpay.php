@@ -1,5 +1,5 @@
 <?php
-   
+require_once "../nextpay_payment.php";
 if ( isset($_GET['nextpay'] ))
 {
   $trans_id = isset($_POST['trans_id']) ? $_POST['trans_id'] : false ;
