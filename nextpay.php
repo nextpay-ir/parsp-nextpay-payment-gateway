@@ -33,6 +33,8 @@ class CNextpay extends PaymentModule{
 		}
 
 		$order_amount = round(100*$order["order_amount"] * $Mellatcurr_rate)/100;
+
+        $amount = (int)$order_amount;
 		
 		$modID =  $this ->get_id();
 		$callbackUrl = CONF_FULL_SHOP_URL."?nextpay&modID=$modID";
@@ -44,7 +46,7 @@ class CNextpay extends PaymentModule{
 		    'api_key'	=> $api_key,
 		    'order_id'	=> $orderID,
 		    'callback_uri' 	=> $callbackUrl,
-		    'amount'	=> $order_amount,
+		    'amount'	=> $amount,
 		);
 		try {
 		    $nextpay = new Nextpay_Payment();
