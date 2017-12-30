@@ -49,7 +49,7 @@ class CNextpay extends PaymentModule{
 		    'amount'	=> $amount,
 		);
 		try {
-		    $nextpay = new Nextpay_Payment();
+		    $nextpay = new Nextpay_Payment($parameters);
 		    $nextpay->setDefaultVerify(0);
 		    $result = $nextpay->token();
 		    if(intval($result->code) == -1){
